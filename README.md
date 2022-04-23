@@ -1,8 +1,8 @@
-# School-Management-System
+# School-Management-System 🏫
   
 
-## Group Members
-* FA20-BSE-057 (Group Leader)
+## Group Members 🧑‍🤝‍🧑
+* FA20-BSE-057 (Group leader)
 * FA20-BSE-165
 * FA20-BSE-052
 * FA20-BSE-070
