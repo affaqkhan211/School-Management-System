@@ -6,6 +6,7 @@ package ui.loginui;
 
 /**
  *
+ * @author mnk
  */
 public class teacher_registration extends javax.swing.JFrame {
 
