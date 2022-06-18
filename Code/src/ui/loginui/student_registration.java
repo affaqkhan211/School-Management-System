@@ -75,7 +75,7 @@ public class student_registration extends javax.swing.JFrame {
         jCheckBox1.setText("showPassword");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Class Teacher");
+        jLabel5.setText("Class");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Password");

@@ -66,7 +66,7 @@ public class teacher_registration extends javax.swing.JFrame {
         jPasswordField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Registration No");
+        jLabel3.setText("Teacher ID");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Email_id");
