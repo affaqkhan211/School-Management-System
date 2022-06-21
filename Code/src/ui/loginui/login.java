@@ -96,7 +96,12 @@ public class login extends javax.swing.JFrame {
         jLabel4.setText("Login");
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Teacher", "Admin" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Teacher", "Admin" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         cancel.setBackground(new java.awt.Color(0, 0, 204));
         cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -188,6 +193,10 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0); //to cancel login page
     }//GEN-LAST:event_cancelActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
