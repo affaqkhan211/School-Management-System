@@ -23,7 +23,7 @@ public class QueryExecutor<E> {
     
     public ArrayList<E> getRecord(){
         
-        
+        //he
        
         
         return null;
