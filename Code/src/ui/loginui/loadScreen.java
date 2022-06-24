@@ -15,6 +15,7 @@ public class loadScreen extends javax.swing.JFrame {
      */
     public loadScreen() {
         initComponents();
+          this.setLocationRelativeTo(null);
     }
 
     /**

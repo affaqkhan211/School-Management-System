@@ -15,6 +15,8 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+        //center show
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -35,7 +37,7 @@ public class login extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBoxshowpassword = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         cancel = new javax.swing.JButton();
 
@@ -89,8 +91,13 @@ public class login extends javax.swing.JFrame {
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCheckBox1.setText("showPassword");
+        jCheckBoxshowpassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jCheckBoxshowpassword.setText("showPassword");
+        jCheckBoxshowpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxshowpasswordActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Login");
@@ -128,7 +135,7 @@ public class login extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4)
-                                .addComponent(jCheckBox1))
+                                .addComponent(jCheckBoxshowpassword))
                             .addGap(101, 101, 101))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -146,7 +153,7 @@ public class login extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
-                .addComponent(jCheckBox1)
+                .addComponent(jCheckBoxshowpassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancel)
@@ -182,6 +189,17 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0); //to cancel login page
     }//GEN-LAST:event_cancelActionPerformed
+
+    private void jCheckBoxshowpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxshowpasswordActionPerformed
+        // TODO add your handling code here:
+        if (jCheckBoxshowpassword.isSelected()) {
+            jPasswordField1.setEchoChar((char)0);
+                }
+        else{
+        jPasswordField1.setEchoChar('*');
+        }
+        
+    }//GEN-LAST:event_jCheckBoxshowpasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,7 +239,7 @@ public class login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBoxshowpassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
