@@ -4,7 +4,7 @@
  */
 package Data_access_layer;
 
-import com.mysql.cj.protocol.Resultset;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -15,16 +15,23 @@ import java.sql.Statement;
  * @author hp
  */
 public class DatabaseReader {
+private String query;
+private Connection conn;
+
+ 
     
 
-   Resultset getRecord(String query,Connection connect) throws ClassNotFoundException{
+   ResultSet getRecord(String query,Connection conn) {
       
-      Class.forName("com.mysql.cj.jdbc.Driver");
+      
        try {
-           Statement sm =connect.createStatement();
+           Statement sm =conn.createStatement();
+         
            
-          return (Resultset) sm.executeQuery(query);
+          return (ResultSet) sm.executeQuery(query);
        } catch (SQLException e) {
+           
+           System.out.println("error in getrecord()"+e.getMessage());
        }
        
        

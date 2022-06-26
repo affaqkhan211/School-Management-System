@@ -4,6 +4,12 @@
  */
 package Data_access_layer;
 
+import AttendanceRecord.StudentRecord;
+import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+
 /**
  *
  * @author hp
@@ -11,16 +17,35 @@ package Data_access_layer;
 public class DatabaseManager {
     
     DatabaseReader reader;
-    RecordMapper mapper;
+    RecordMapper mapp;
      Iconnection connect;
-     
-    public DatabaseManager(){
-        
-        connect=new SqlConnection("localhost:3306","attendance_system" , "root", "kashan123");
-        
-        
-    }
     
+   private String Query;
+   
+     
+    public DatabaseManager(RecordMapper mapp){
+        connect=new SqlConnection("jdbc:mysql://localhost:3306/attendance__system","root","kashan123");
+       this.mapp=mapp;
+  reader=new DatabaseReader();
+    }
+            
+   public void getquery(String Query){
+   
+   this.Query=Query;
+   
+   }
+public ArrayList<StudentRecord> getlist(){
+
+Connection dbconn =connect.getConnection();
+ResultSet rs =reader.getRecord(Query,dbconn);
+
+return mapp.getStudents(rs);
+
+}
+ 
+
+    
+   
     
     
 }

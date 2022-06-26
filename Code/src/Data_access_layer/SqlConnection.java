@@ -7,6 +7,8 @@ package Data_access_layer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -19,22 +21,27 @@ public class SqlConnection implements Iconnection{
      private  String dbusername;
       private  String dbpassword;
 
-    public SqlConnection(String servername,String dbname, String dbusername,String dbpassword) {
-        this.dbname=dbname;
+    public SqlConnection(String servername, String dbusername,String dbpassword) {
+        
         this.servername=servername;
         this.dbusername=dbusername;
         this.dbpassword=dbpassword;
     }
 
+  
     @Override
     public Connection getConnection() {
         try {
-             
-            return DriverManager.getConnection("jdbc:mysql://"+this.servername+";databaseName="+this.dbname,this.dbusername,this.dbpassword);
+                Class.forName("com.mysql.cj.jdbc.Driver");
+           return DriverManager.getConnection(this.servername,this.dbusername,this.dbpassword);
             
+           
+           
         } catch (SQLException e) {
             
             System.out.println("error in getconnection()"+e.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Data_access_layer.SqlConnection.getConnection()"+ex.getMessage());
         }
         return null;
     }

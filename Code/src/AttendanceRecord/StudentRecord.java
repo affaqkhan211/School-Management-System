@@ -2,26 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Data_access_layer;
-
-
-
+package AttendanceRecord;
 
 /**
  *
  * @author hp
- *
  */
-public class QueryExecutor {
-      
-    private  String query;
- 
+public class StudentRecord {
     
-    public QueryExecutor( String query){
-        this.query=query;
-    }
-    
- 
+   public String name;
+    public String regno;
+      public String attendance;
+    public String Class;
     
     
 }
