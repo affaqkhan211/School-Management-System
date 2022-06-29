@@ -68,7 +68,7 @@ public class student_registration extends javax.swing.JFrame {
         jPasswordField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Registration No");
+        jLabel3.setText("Student_id");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Email_id");
@@ -251,7 +251,7 @@ public class student_registration extends javax.swing.JFrame {
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         // TODO add your handling code here:
-  System.exit(0);//when admin cancel student registration
+            System.exit(0);//when admin cancel student registration
     }//GEN-LAST:event_cancelActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
