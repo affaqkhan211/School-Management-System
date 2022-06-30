@@ -7,6 +7,7 @@ package ui;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import ui.AboutExams.teacherView_1;
 import ui.attendance_module.teacher_ui;
 
 /**
@@ -14,7 +15,10 @@ import ui.attendance_module.teacher_ui;
  * @author mnk
  */
 public class Teacher_Dashboard extends javax.swing.JFrame {
-
+    
+    
+    String subjectName = "OOSE";
+    
     /**
      * Creates new form Teacher_Dashboard
      */
@@ -34,6 +38,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +72,13 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("About Exams");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,7 +90,9 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -87,7 +101,9 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addGap(0, 317, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(0, 276, Short.MAX_VALUE))
         );
 
         pack();
@@ -101,6 +117,13 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
         }
      
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        teacherView_1 a = new teacherView_1(subjectName);
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,6 +162,7 @@ public class Teacher_Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
