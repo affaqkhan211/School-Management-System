@@ -4,6 +4,15 @@
  */
 package ui.attendance_module;
 
+import AttendanceRecord.StudentRecord;
+import controller.Acontroller;
+import controller.AttendanceController;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+
 /**
  *
  * @author hp
@@ -14,9 +23,25 @@ public class teacher_ui extends javax.swing.JFrame {
     *
      * Creates new form teacher_ui
      */
-    public teacher_ui() {
+    public teacher_ui() throws SQLException{
         initComponents();
+        
+      AttendanceController Controller = Acontroller.getInstanceOfAttendanceController();
+      Controller.forquery("select fname,lname,reg_num,class from students");
+      ArrayList<StudentRecord> stdlist = Controller.viewstudents();
+  
+        
+     
+            populatetable(stdlist);
+    
+        
+        
+        
+        
+        
+      
     }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -108,10 +133,7 @@ public class teacher_ui extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -128,6 +150,11 @@ public class teacher_ui extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jMenu1.setText("Show Attendance");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Back");
@@ -161,9 +188,40 @@ public class teacher_ui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+       
+    }//GEN-LAST:event_jMenu1MouseClicked
+
     /**
      * @param args the command line arguments
      */
+    
+ 
+   
+
+   
+   
+    
+    private void populatetable(ArrayList<StudentRecord> stdlist) throws SQLException{
+    
+       DefaultTableModel mod =(DefaultTableModel) jTable1.getModel();
+       
+           for(int i=0;i<stdlist.size();i++){
+              Object[] rowdata =new Object[3]; 
+           
+               
+               rowdata[0]=stdlist.get(i).regno;
+               rowdata[1]=stdlist.get(i).name;
+               rowdata[2]=stdlist.get(i).Class;
+               mod.addRow(rowdata);
+                  
+           }
+           
+       
+    }
+    
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -190,7 +248,11 @@ public class teacher_ui extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new teacher_ui().setVisible(true);
+            try {
+                new teacher_ui().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(teacher_ui.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
