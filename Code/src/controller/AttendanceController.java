@@ -7,6 +7,7 @@ package controller;
 import AttendanceRecord.StudentRecord;
 import Data_access_layer.DatabaseManager;
 import java.util.ArrayList;
+import java.sql.*;
 
 
 
@@ -24,9 +25,17 @@ public class AttendanceController {
     public ArrayList<StudentRecord> viewstudents() {
         return dm.getlist();
     }
-     public void forquery(String query){
+     public void fgetquery(String getQuery){
      
-     dm.getquery(query);
+     dm.getquery(getQuery);
+     
+     }
+//      public void fsetquery(String setQuery){
+//      dm.setquery(setQuery);
+//      }
+     
+     public PreparedStatement insert(String query){
+     return dm.insertrecord(query);
      
      }
 

@@ -4,11 +4,11 @@
  */
 package Data_access_layer;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Connection;
-import java.sql.Statement;
-
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+//import java.sql.Connection;
+//import java.sql.Statement;
+import java.sql.*;
 
 /**
  *
@@ -26,6 +26,7 @@ private Connection conn;
       
        try {
            Statement sm =conn.createStatement();
+       
          
            
           return (ResultSet) sm.executeQuery(query);
@@ -39,4 +40,6 @@ private Connection conn;
        
       
 }
+   
+   
 }
