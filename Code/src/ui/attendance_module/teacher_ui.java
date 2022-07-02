@@ -4,8 +4,8 @@
  */
 package ui.attendance_module;
 
-import AttendanceRecord.StudentRecord;
-import controller.Acontroller;
+import Record.StudentRecord;
+import controller.ObjectsFactory;
 import controller.AttendanceController;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -26,7 +26,7 @@ public class teacher_ui extends javax.swing.JFrame {
     public teacher_ui() throws SQLException{
         initComponents();
         
-      AttendanceController Controller = Acontroller.getInstanceOfAttendanceController();
+      AttendanceController Controller = ObjectsFactory.getInstanceOfAttendanceController();
       Controller.fgetquery("select s.fname,s.lname,s.reg_num,s.class,a.att_status from students s join attendance a on(s.reg_num=a.reg_num)");
       ArrayList<StudentRecord> stdlist = Controller.viewstudents();
             populatetable(stdlist);

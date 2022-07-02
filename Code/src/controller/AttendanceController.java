@@ -4,7 +4,7 @@
  */
 package controller;
 
-import AttendanceRecord.StudentRecord;
+import Record.StudentRecord;
 import Data_access_layer.DatabaseManager;
 import java.util.ArrayList;
 import java.sql.*;
@@ -19,7 +19,7 @@ public class AttendanceController {
      DatabaseManager dm;
    public AttendanceController(){
 
-        dm=Acontroller.getInstanceOfDatabaseManager();
+        dm=ObjectsFactory.getInstanceOfDatabaseManager();
     }
 
     public ArrayList<StudentRecord> viewstudents() {
