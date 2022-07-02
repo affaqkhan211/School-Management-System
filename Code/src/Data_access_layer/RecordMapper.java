@@ -4,7 +4,7 @@
  */
 package Data_access_layer;
 
-import AttendanceRecord.StudentRecord;
+import Record.StudentRecord;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;

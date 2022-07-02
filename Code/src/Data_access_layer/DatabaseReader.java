@@ -19,15 +19,11 @@ private String query;
 private Connection conn;
 
  
-    
 
    ResultSet getRecord(String query,Connection conn) {
       
-      
        try {
            Statement sm =conn.createStatement();
-       
-         
            
           return (ResultSet) sm.executeQuery(query);
        } catch (SQLException e) {
@@ -35,11 +31,6 @@ private Connection conn;
            System.out.println("error in getrecord()"+e.getMessage());
        }
        
-       
-       return null;
-       
-      
+       return null;    
 }
-   
-   
-}
+  }
