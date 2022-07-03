@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  */
 public class SqlConnection implements Iconnection{
     private  String servername;
+     private  String dbname;
      private  String dbusername;
       private  String dbpassword;
 

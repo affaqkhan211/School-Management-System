@@ -11,9 +11,9 @@ package AttendanceRecord;
 public class StudentRecord {
     
    public String name;
-   public String regno;
-   public String attendance;
-   public String Class;
+    public String regno;
+      public String attendance;
+    public String Class;
     
     
 }
