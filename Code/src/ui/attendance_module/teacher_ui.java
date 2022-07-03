@@ -27,7 +27,11 @@ public class teacher_ui extends javax.swing.JFrame {
         initComponents();
         
       AttendanceController Controller = Acontroller.getInstanceOfAttendanceController();
+<<<<<<< HEAD
       Controller.forquery("select fname,lname,reg_num,class from students");
+=======
+      Controller.fgetquery("select s.fname,s.lname,s.reg_num,s.class,a.att_status from students s join attendance a on(s.reg_num=a.reg_num)");
+>>>>>>> parent of b49d54b (Added Code)
       ArrayList<StudentRecord> stdlist = Controller.viewstudents();
   
         

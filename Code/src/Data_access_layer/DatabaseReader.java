@@ -26,6 +26,10 @@ private Connection conn;
       
        try {
            Statement sm =conn.createStatement();
+<<<<<<< HEAD
+=======
+       
+>>>>>>> parent of b49d54b (Added Code)
          
            
           return (ResultSet) sm.executeQuery(query);
@@ -39,4 +43,9 @@ private Connection conn;
        
       
 }
+<<<<<<< HEAD
+=======
+   
+   
+>>>>>>> parent of b49d54b (Added Code)
 }

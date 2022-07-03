@@ -20,13 +20,23 @@ public class DatabaseManager {
     RecordMapper mapp;
      Iconnection connect;
     
+<<<<<<< HEAD
    private String Query;
+=======
+   private String getQuery;
+   private String setQuery;
+>>>>>>> parent of b49d54b (Added Code)
    
      
     public DatabaseManager(RecordMapper mapp){
         connect=new SqlConnection("jdbc:mysql://localhost:3306/attendance__system","root","kashan123");
        this.mapp=mapp;
   reader=new DatabaseReader();
+<<<<<<< HEAD
+=======
+   setrecord=new RecordSet();
+  
+>>>>>>> parent of b49d54b (Added Code)
     }
             
    public void getquery(String Query){
@@ -43,6 +53,14 @@ return mapp.getStudents(rs);
 
 }
  
+<<<<<<< HEAD
+=======
+        PreparedStatement prepere = setrecord.setRecord(setQuery,dbconn);
+ 
+ return prepere;
+ 
+ }
+>>>>>>> parent of b49d54b (Added Code)
 
     
    
