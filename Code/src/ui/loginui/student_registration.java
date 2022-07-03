@@ -138,11 +138,19 @@ public class student_registration extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                             .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField1)
                             .addComponent(jTextField2)
                             .addComponent(jTextField3)
                             .addComponent(jPasswordField2))
+=======
+                            .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(fname)
+                            .addComponent(lname)
+                            .addComponent(regno)
+                            .addComponent(pass))
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
                         .addGap(124, 124, 124))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,6 +273,39 @@ public class student_registration extends javax.swing.JFrame {
                 }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+<<<<<<< HEAD
+=======
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  String fname=this.fname.getText();
+    String lname=this.lname.getText();
+String regno=this.regno.getText();
+String email=this.email.getText();
+String Class=(String) jComboBox1.getSelectedItem();
+String pass= new String(this.pass.getPassword());
+ String admin_id="admin123";
+String query="insert into student(fname,lname,s_id,email_id,class,pass,a_id) values (?,?,?,?,?,?,?)";
+
+        try {
+            Controller.insert(fname,lname,regno,email,Class,pass,admin_id,query);
+          JOptionPane.showMessageDialog(null, "Student Register Successfuly");
+        } catch (SQLException ex) {
+//            System.out.println("eror in "+ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Student are alredy Register "+ ex.getMessage());
+
+        }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void lnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lnameActionPerformed
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailActionPerformed
+
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
     /**
      * @param args the command line arguments
      */
@@ -302,6 +343,11 @@ public class student_registration extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel;
+<<<<<<< HEAD
+=======
+    private javax.swing.JTextField email;
+    private javax.swing.JTextField fname;
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
