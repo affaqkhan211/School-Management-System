@@ -141,12 +141,15 @@ public class student_registration extends javax.swing.JFrame {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField1)
                             .addComponent(jTextField2)
                             .addComponent(jTextField3)
                             .addComponent(jPasswordField2))
 =======
+=======
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
 =======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
 =======
@@ -158,6 +161,9 @@ public class student_registration extends javax.swing.JFrame {
                             .addComponent(pass))
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
+=======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
 =======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
@@ -319,6 +325,9 @@ String query="insert into student(fname,lname,s_id,email_id,class,pass,a_id) val
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
+=======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
 =======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
@@ -364,7 +373,10 @@ String query="insert into student(fname,lname,s_id,email_id,class,pass,a_id) val
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
 =======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
 =======
