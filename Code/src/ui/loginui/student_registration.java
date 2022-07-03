@@ -139,17 +139,23 @@ public class student_registration extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 <<<<<<< HEAD
+<<<<<<< HEAD
                             .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField1)
                             .addComponent(jTextField2)
                             .addComponent(jTextField3)
                             .addComponent(jPasswordField2))
 =======
+=======
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
                             .addComponent(email, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fname)
                             .addComponent(lname)
                             .addComponent(regno)
                             .addComponent(pass))
+<<<<<<< HEAD
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
+=======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
                         .addGap(124, 124, 124))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -305,6 +311,9 @@ String query="insert into student(fname,lname,s_id,email_id,class,pass,a_id) val
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
+<<<<<<< HEAD
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
+=======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
     /**
      * @param args the command line arguments
@@ -344,7 +353,10 @@ String query="insert into student(fname,lname,s_id,email_id,class,pass,a_id) val
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
     private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)

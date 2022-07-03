@@ -75,6 +75,7 @@
                           <Component id="cancel" min="-2" pref="104" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -95,6 +96,9 @@
                       </Group>
 =======
                       </Group>
+=======
+                      </Group>
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="email" alignment="1" max="32767" attributes="0"/>
@@ -112,6 +116,9 @@
                           </Group>
                           <EmptySpace min="170" max="32767" attributes="0"/>
                       </Group>
+<<<<<<< HEAD
+>>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
+=======
 >>>>>>> parent of 37b655d (i complete Register Account Use case thesis file as well code with grasp Principle)
                   </Group>
               </Group>
