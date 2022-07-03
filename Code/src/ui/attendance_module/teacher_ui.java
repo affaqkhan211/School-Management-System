@@ -4,8 +4,8 @@
  */
 package ui.attendance_module;
 
-import AttendanceRecord.StudentRecord;
-import controller.Acontroller;
+import Record.StudentRecord;
+import controller.ObjectsFactory;
 import controller.AttendanceController;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -26,14 +26,11 @@ public class teacher_ui extends javax.swing.JFrame {
     public teacher_ui() throws SQLException{
         initComponents();
         
-      AttendanceController Controller = Acontroller.getInstanceOfAttendanceController();
-      Controller.forquery("select fname,lname,reg_num,class from students");
+      AttendanceController Controller = ObjectsFactory.getInstanceOfAttendanceController();
+      Controller.fgetquery("select s.fname,s.lname,s.reg_num,s.class,a.att_status from students s join attendance a on(s.reg_num=a.reg_num)");
       ArrayList<StudentRecord> stdlist = Controller.viewstudents();
-  
-        
-     
             populatetable(stdlist);
-    
+            fill(stdlist);
         
         
         
@@ -55,8 +52,8 @@ public class teacher_ui extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jProgressBar2 = new javax.swing.JProgressBar();
+        jpresent = new javax.swing.JProgressBar();
+        jabsent = new javax.swing.JProgressBar();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -90,8 +87,14 @@ public class teacher_ui extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
+        jpresent.setBackground(new java.awt.Color(51, 204, 0));
+        jpresent.setForeground(new java.awt.Color(0, 0, 0));
+        jpresent.setStringPainted(true);
+
+        jabsent.setStringPainted(true);
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel2.setText("Total Presant");
+        jLabel2.setText("Total Present");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel3.setText("Total Absent");
@@ -111,8 +114,8 @@ public class teacher_ui extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                    .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpresent, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(jabsent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -120,12 +123,12 @@ public class teacher_ui extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(jpresent, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jProgressBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jabsent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(25, Short.MAX_VALUE))
@@ -136,7 +139,7 @@ public class teacher_ui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "REGNO", "NAME", "CLASS", "ATT_STATUS"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -171,7 +174,7 @@ public class teacher_ui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -200,25 +203,74 @@ public class teacher_ui extends javax.swing.JFrame {
    
 
    
+   private void fill(ArrayList<StudentRecord> stdlist){
+       
+       int total= stdlist.size();
+       int present=0;
+       int absent=0;
+     
+       
+       for (StudentRecord std:stdlist){
+       if(std.attendance.equals("present"))
+       present++;
+       else
+           absent++;
+       }
+       
+       int pper=  present*100/total;
+      int aper=absent*100/total;
+       
+       
+
+int pcounter=0;
+
+       while (pcounter<=pper) {
+              jpresent.setValue(pcounter);
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(teacher_ui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                pcounter+=5;
+                
+       }
+  int acounter=0;
+  jabsent.setValue(0);
+                while (acounter<=aper) {
+              jabsent.setValue(acounter);
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(teacher_ui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               acounter+=5;
+            }
    
+   }
     
     private void populatetable(ArrayList<StudentRecord> stdlist) throws SQLException{
     
        DefaultTableModel mod =(DefaultTableModel) jTable1.getModel();
        
            for(int i=0;i<stdlist.size();i++){
-              Object[] rowdata =new Object[3]; 
+              Object[] rowdata =new Object[4]; 
            
                
                rowdata[0]=stdlist.get(i).regno;
                rowdata[1]=stdlist.get(i).name;
                rowdata[2]=stdlist.get(i).Class;
+               rowdata[3]=stdlist.get(i).attendance;
+               
                mod.addRow(rowdata);
                   
            }
            
        
     }
+    
+    
+    
     
     
     
@@ -267,9 +319,9 @@ public class teacher_ui extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JProgressBar jabsent;
+    private javax.swing.JProgressBar jpresent;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@
  */
 package Data_access_layer;
 
-import AttendanceRecord.StudentRecord;
+import Record.StudentRecord;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +25,9 @@ public class RecordMapper {
                 StudentRecord objStd=new StudentRecord();                
                 objStd.regno=rs.getString("reg_num");
                  objStd.name=rs.getString("fname")+" "+rs.getString("lname");
-                 objStd.Class=rs.getString("class");                  
+                 objStd.Class=rs.getString("class");
+                 objStd.attendance=rs.getString("att_status");
+                 
                 stdlist.add( objStd);
             }
         }catch (SQLException e){

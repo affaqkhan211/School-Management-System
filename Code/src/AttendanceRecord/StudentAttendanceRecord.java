@@ -4,16 +4,17 @@
  */
 package AttendanceRecord;
 
+import java.sql.Date;
+
 /**
  *
  * @author hp
  */
-public class StudentRecord {
-    
-   public String name;
-   public String regno;
-   public String attendance;
-   public String Class;
+public class StudentAttendanceRecord {
+    public String regno;
+    public String attendance;
+    public String teacherid;
+    public String date;
     
     
 }

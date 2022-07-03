@@ -11,7 +11,7 @@ import Data_access_layer.RecordMapper;
  *
  * @author hp
  */
-public class Acontroller {
+public class ObjectsFactory {
     
     
       static DatabaseManager getInstanceOfDatabaseManager() {
@@ -20,4 +20,12 @@ public class Acontroller {
      public static AttendanceController getInstanceOfAttendanceController() {
         return new AttendanceController();
     }
+     //ref
+     public static RegController getinstanceofLoginController(){
+     
+     return new RegController();
+     
+     
+     }
 }
+

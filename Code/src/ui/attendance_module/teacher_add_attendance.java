@@ -4,6 +4,20 @@
  */
 package ui.attendance_module;
 
+import Record.StudentAttendanceRecord;
+import Record.StudentRecord;
+import controller.ObjectsFactory;
+import controller.AttendanceController;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
+import java.sql.*;
+import java.text.SimpleDateFormat;
+
+
 /**
  *
  * @author hp
@@ -12,9 +26,17 @@ public class teacher_add_attendance extends javax.swing.JFrame {
 
     /**
      * Creates new form teacher_add_attendance
+     * @throws java.sql.SQLException
      */
-    public teacher_add_attendance() {
+    
+    public String setquery="insert into attendance (teacher_id,reg_num,att_status,_date) values (?,?,?,?)";
+    
+    public teacher_add_attendance() throws SQLException {
         initComponents();
+        AttendanceController Controller = ObjectsFactory.getInstanceOfAttendanceController();
+        Controller.fgetquery("select s.fname,s.lname,s.reg_num,s.class,a.att_status from students s join attendance a on(s.reg_num=a.reg_num)");
+        ArrayList<StudentRecord> stdlist = Controller.viewstudents();
+        populatetable(stdlist);
     }
 
     /**
@@ -30,12 +52,12 @@ public class teacher_add_attendance extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        date = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(695, 471));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
@@ -59,10 +81,7 @@ public class teacher_add_attendance extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -85,7 +104,14 @@ public class teacher_add_attendance extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jMenu1.setText("Show Attendance");
+        date.setDateFormatString("yyyy-MM-dd");
+
+        jMenu1.setText("Save Attendance");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Back");
@@ -101,6 +127,10 @@ public class teacher_add_attendance extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
@@ -110,19 +140,95 @@ public class teacher_add_attendance extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 423, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 394, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(34, 34, 34)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                    .addContainerGap(61, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        try {
+            // TODO add your handling code here:
+
+            AddAttendance();
+        } catch (SQLException ex) {
+            Logger.getLogger(teacher_add_attendance.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+  
+        private void populatetable(ArrayList<StudentRecord> stdlist) throws SQLException{
+    
+       DefaultTableModel mod =(DefaultTableModel) jTable1.getModel();
+       
+           for(int i=0;i<stdlist.size();i++){
+              Object[] rowdata =new Object[3]; 
+           
+               
+               rowdata[0]=stdlist.get(i).regno;
+               rowdata[1]=stdlist.get(i).name;
+               rowdata[2]=stdlist.get(i).Class;
+               
+               
+               mod.addRow(rowdata);
+                  
+           }
+        }
+        
+       
+       
+       
+    public void  AddAttendance() throws SQLException{
+         AttendanceController Controller = ObjectsFactory.getInstanceOfAttendanceController();
+       ArrayList<StudentAttendanceRecord> setStdlist=new ArrayList<>();
+       
+        
+
+         StudentAttendanceRecord AttendanceRecord =new StudentAttendanceRecord();
+         DefaultTableModel model=(DefaultTableModel) jTable1.getModel();
+         
+       // java.sql.Date sqldate = new java.sql.Date(date.getDate());
+       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+     
+       for(int i=0; i<model.getRowCount(); i++){
+       AttendanceRecord.regno = (String)model.getValueAt(i,0);
+        AttendanceRecord.teacherid= "115";
+        
+        
+        AttendanceRecord.date=sdf.format(date.getDate());
+        
+//        Date date=Date.valueOf(AttendanceRecord.date);
+        Object o = model.getValueAt(i,3);
+        if(o == null || !(Boolean) model.getValueAt(i,3)){
+          AttendanceRecord.attendance="absent";
+       }
+        else{
+            AttendanceRecord.attendance="present";
+        }
+        setStdlist.add(AttendanceRecord);
+       }
+       PreparedStatement prepere=Controller.insert(setquery);
+       for(StudentAttendanceRecord att: setStdlist){
+     
+       prepere.setString(1,att.teacherid);
+       prepere.setString(2,att.regno);
+       prepere.setString(3,att.attendance);
+       prepere.setString(4, (att.date));
+       prepere.executeUpdate();
+       
+       }
+     }
+     
     /**
-     * @param args the command line arguments
+     *
+     * @param args
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -150,11 +256,16 @@ public class teacher_add_attendance extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new teacher_add_attendance().setVisible(true);
+            try {
+                new teacher_add_attendance().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(teacher_add_attendance.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser date;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
