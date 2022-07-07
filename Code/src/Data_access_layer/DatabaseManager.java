@@ -27,7 +27,8 @@ public class DatabaseManager {
    
      
     public DatabaseManager(RecordMapper mapp){
-        connect=new SqlConnection("jdbc:mysql://127.0.0.1:3306/management" ,"irfan", "irfan1234");
+//        connect=new SqlConnection("jdbc:mysql://127.0.0.1:3306/management" ,"irfan", "irfan1234");
+      connect=new SqlConnection("jdbc:mysql://localhost:3306/attendance__system" ,"root", "kashan123");
        this.mapp=mapp;
   reader=new DatabaseReader();
    setrecord=new RecordSet();
@@ -75,7 +76,6 @@ return mapp.getStudents(rs);
  public void insertteacherrecord(String fname,String lname, String t_id, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
   Connection dbconn =connect.getConnection();
  PreparedStatement prepere = setrecord.setRecord(setQuery,dbconn);
- 
 threg.regesterteacher(fname,lname,t_id, email,Class,pass,Admin_id,setQuery,prepere);
 
   }
