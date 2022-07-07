@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/DatabaseManager.java</file>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/DatabaseReader.java</file>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/ui/loginui/teacher_registration.java</file>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/ui/loginui/student_registration.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/controller/ObjectsFactory.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/RecordSet.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/RecordMapper.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/StudentRegistration.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/Iconnection.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/QueryExecutor.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/controller/RegController.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/SqlConnection.java</file>
         </group>
     </open-files>
 </project-private>
