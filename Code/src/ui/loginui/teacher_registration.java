@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Action;
 import java.util.*;
+import ui.Admin_Dashboard;
 
 
 /**
@@ -55,7 +56,7 @@ public class teacher_registration extends javax.swing.JFrame {
         lname = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        cancel = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -118,13 +119,13 @@ public class teacher_registration extends javax.swing.JFrame {
             }
         });
 
-        cancel.setBackground(new java.awt.Color(0, 51, 204));
-        cancel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        cancel.setForeground(new java.awt.Color(255, 255, 255));
-        cancel.setText("Cancel");
-        cancel.addActionListener(new java.awt.event.ActionListener() {
+        Back.setBackground(new java.awt.Color(0, 51, 204));
+        Back.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Back.setForeground(new java.awt.Color(255, 255, 255));
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
+                BackActionPerformed(evt);
             }
         });
 
@@ -158,7 +159,7 @@ public class teacher_registration extends javax.swing.JFrame {
                                     .addComponent(jCheckBoxpass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(email)
                             .addComponent(fname, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lname, javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +203,7 @@ public class teacher_registration extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Register, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -286,11 +287,12 @@ String query="insert into teacher(fname,lname,t_id,email_id,class,pass,a_id) val
         
     }//GEN-LAST:event_RegisterActionPerformed
 
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
-   System.exit(0);
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+   this.setVisible(false);
+         new Admin_Dashboard().setVisible(true);
         
         
-    }//GEN-LAST:event_cancelActionPerformed
+    }//GEN-LAST:event_BackActionPerformed
 
     private void jCheckBoxpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxpassActionPerformed
         // TODO add your handling code here:
@@ -338,8 +340,8 @@ String query="insert into teacher(fname,lname,t_id,email_id,class,pass,a_id) val
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back;
     private javax.swing.JButton Register;
-    private javax.swing.JButton cancel;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
     private javax.swing.JCheckBox jCheckBoxpass;

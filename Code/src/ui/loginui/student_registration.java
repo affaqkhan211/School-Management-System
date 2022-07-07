@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.Action;
 import java.util.*;
 import javax.swing.JOptionPane;
+import ui.Admin_Dashboard;
 
 
 /**
@@ -57,7 +58,7 @@ public class student_registration extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         cancel = new javax.swing.JButton();
-        cancel1 = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -140,13 +141,13 @@ public class student_registration extends javax.swing.JFrame {
             }
         });
 
-        cancel1.setBackground(new java.awt.Color(0, 0, 204));
-        cancel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        cancel1.setForeground(new java.awt.Color(255, 255, 255));
-        cancel1.setText("Back");
-        cancel1.addActionListener(new java.awt.event.ActionListener() {
+        back.setBackground(new java.awt.Color(0, 0, 204));
+        back.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        back.setForeground(new java.awt.Color(255, 255, 255));
+        back.setText("Back");
+        back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel1ActionPerformed(evt);
+                backActionPerformed(evt);
             }
         });
 
@@ -182,7 +183,7 @@ public class student_registration extends javax.swing.JFrame {
                                 .addGap(85, 85, 85)
                                 .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(email)
                             .addComponent(fname, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lname, javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,9 +226,9 @@ public class student_registration extends javax.swing.JFrame {
                 .addComponent(jCheckBox1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(cancel)
-                    .addComponent(cancel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -336,9 +337,11 @@ String query="insert into student(fname,lname,s_id,email_id,class,pass,a_id) val
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+         this.setVisible(false);
+         new Admin_Dashboard().setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_cancel1ActionPerformed
+    }//GEN-LAST:event_backActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,8 +379,8 @@ String query="insert into student(fname,lname,s_id,email_id,class,pass,a_id) val
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back;
     private javax.swing.JButton cancel;
-    private javax.swing.JButton cancel1;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
     private javax.swing.JButton jButton1;
