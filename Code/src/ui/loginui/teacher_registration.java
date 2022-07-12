@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.Action;
 import java.util.*;
 import ui.Admin_Dashboard;
+import ui.Clerk_Dashboard;
 
 
 /**
@@ -62,6 +63,9 @@ public class teacher_registration extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Register Teacher");
+
+        jPanel3.setToolTipText("");
 
         t_id.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
@@ -289,8 +293,8 @@ String query="insert into teacher(fname,lname,t_id,email_id,class,pass,a_id) val
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
    this.setVisible(false);
-         new Admin_Dashboard().setVisible(true);
-        
+//         new Admin_Dashboard().setVisible(true);
+        new Clerk_Dashboard().setVisible(true);
         
     }//GEN-LAST:event_BackActionPerformed
 

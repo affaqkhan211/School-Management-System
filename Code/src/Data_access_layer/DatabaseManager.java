@@ -26,16 +26,18 @@ public class DatabaseManager {
    StudentRegistration stdreg;
    TeacherRegistration threg;
     StudentAddAttendance addatt;
-     
+    ClerkRegistration clreg;
+       
     public DatabaseManager(RecordMapper mapp){
-//        connect=new SqlConnection("jdbc:mysql://127.0.0.1:3306/management" ,"irfan", "irfan1234");
-      connect=new SqlConnection("jdbc:mysql://localhost:3306/attendance__system" ,"root", "kashan123");
+        connect=new SqlConnection("jdbc:mysql://127.0.0.1:3306/management" ,"irfan", "irfan1234");
+//      connect=new SqlConnection("jdbc:mysql://localhost:3306/attendance__system" ,"root", "kashan123");
        this.mapp=mapp;
   reader=new DatabaseReader();
    setrecord=new RecordSet();
   stdreg=new StudentRegistration();
   threg=new TeacherRegistration();
   addatt=new StudentAddAttendance();
+  clreg=new ClerkRegistration();
   
     }
             
@@ -77,6 +79,12 @@ threg.regesterteacher(fname,lname,t_id, email,Class,pass,Admin_id,setQuery,prepe
         PreparedStatement prepere = setrecord.setRecord(Query,dbconn);
           addatt.AddAttendance(prepere,setstdList);
     
+    }
+
+    public void insertclerkrecord(String fname, String lname, String c_id, String email, String pass, String Admin_id, String setQuery) throws SQLException {
+        Connection dbconn =connect.getConnection();
+ PreparedStatement prepere = setrecord.setRecord(setQuery,dbconn);
+clreg.regesterclerk(fname,lname,c_id, email,pass,Admin_id,setQuery,prepere);
     }
     
     
