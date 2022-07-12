@@ -27,16 +27,9 @@ public class teacher_ui extends javax.swing.JFrame {
         initComponents();
         
       AttendanceController Controller = ObjectsFactory.getInstanceOfAttendanceController();
-      Controller.fgetquery("select s.fname,s.lname,s.reg_num,s.class,a.att_status from students s join attendance a on(s.reg_num=a.reg_num)");
       ArrayList<StudentRecord> stdlist = Controller.viewstudents();
             populatetable(stdlist);
-            fill(stdlist);
-        
-        
-        
-        
-        
-      
+          Controller.fillbar(jpresent,jabsent,stdlist);
     }
  
 
@@ -192,63 +185,12 @@ public class teacher_ui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-       
+      
     }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
      */
-    
- 
-   
-
-   
-   private void fill(ArrayList<StudentRecord> stdlist){
-       
-       int total= stdlist.size();
-       int present=0;
-       int absent=0;
-     
-       
-       for (StudentRecord std:stdlist){
-       if(std.attendance.equals("present"))
-       present++;
-       else
-           absent++;
-       }
-       
-       int pper=  present*100/total;
-      int aper=absent*100/total;
-       
-       
-
-int pcounter=0;
-
-       while (pcounter<=pper) {
-              jpresent.setValue(pcounter);
-                try {
-                    Thread.sleep(50);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(teacher_ui.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-                pcounter+=5;
-                
-       }
-  int acounter=0;
-  jabsent.setValue(0);
-                while (acounter<=aper) {
-              jabsent.setValue(acounter);
-                try {
-                    Thread.sleep(50);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(teacher_ui.class.getName()).log(Level.SEVERE, null, ex);
-                }
-               acounter+=5;
-            }
-   
-   }
-    
     private void populatetable(ArrayList<StudentRecord> stdlist) throws SQLException{
     
        DefaultTableModel mod =(DefaultTableModel) jTable1.getModel();

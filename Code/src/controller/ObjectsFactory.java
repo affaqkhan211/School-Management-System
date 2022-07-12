@@ -6,6 +6,8 @@ package controller;
 
 import Data_access_layer.DatabaseManager;
 import Data_access_layer.RecordMapper;
+import Model.FillProgressBar;
+import Model.updatedListFromTab;
 
 /**
  *
@@ -27,5 +29,18 @@ public class ObjectsFactory {
      
      
      }
+     public static FillProgressBar getinstanceofProgressBar(){
+   
+     return  new FillProgressBar();
+     }
+
+     public static updatedListFromTab getinstanceofupdaFromTab(){
+   
+     return  new updatedListFromTab();
+     }
+
+  
+     
+     
 }
 

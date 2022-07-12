@@ -13,15 +13,7 @@ package Data_access_layer;
  *
  */
 public class QueryExecutor {
-      
-    private  String query;
- 
-    
-    public QueryExecutor( String query){
-        this.query=query;
-    }
-    
- 
+
     
     
 }

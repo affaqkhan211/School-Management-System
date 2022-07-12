@@ -12,7 +12,7 @@ import java.sql.*;
  * @author mnk
  */
 public class TeacherRegistration {
-       void regesterteacher(String fname,String lname, String t_id, String email,String Class,String pass,String admin_id,String query,PreparedStatement prepere) throws SQLException{
+   void regesterteacher(String fname,String lname, String t_id, String email,String Class,String pass,String admin_id,String query,PreparedStatement prepere) throws SQLException{
    prepere.setString(1, fname);
    prepere.setString(2, lname);
    prepere.setString(3, t_id);

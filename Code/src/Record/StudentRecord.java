@@ -14,6 +14,5 @@ public class StudentRecord {
    public String regno;
    public String attendance;
    public String Class;
-    
-    
+        public String date;
 }

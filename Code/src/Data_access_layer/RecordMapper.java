@@ -27,7 +27,7 @@ public class RecordMapper {
                  objStd.name=rs.getString("fname")+" "+rs.getString("lname");
                  objStd.Class=rs.getString("class");
                  objStd.attendance=rs.getString("att_status");
-                 
+                 objStd.date=rs.getString("_date");
                 stdlist.add( objStd);
             }
         }catch (SQLException e){

@@ -14,8 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-import java.sql.*;
-import java.text.SimpleDateFormat;
+
+import javax.swing.JOptionPane;
 
 
 /**
@@ -30,12 +30,12 @@ public class teacher_add_attendance extends javax.swing.JFrame {
      */
     
     public String setquery="insert into attendance (teacher_id,reg_num,att_status,_date) values (?,?,?,?)";
-    
+     AttendanceController Controller; 
+    ArrayList<StudentRecord> stdlist;
     public teacher_add_attendance() throws SQLException {
         initComponents();
-        AttendanceController Controller = ObjectsFactory.getInstanceOfAttendanceController();
-        Controller.fgetquery("select s.fname,s.lname,s.reg_num,s.class,a.att_status from students s join attendance a on(s.reg_num=a.reg_num)");
-        ArrayList<StudentRecord> stdlist = Controller.viewstudents();
+      Controller = ObjectsFactory.getInstanceOfAttendanceController();
+        stdlist= Controller.viewStudents();
         populatetable(stdlist);
     }
 
@@ -154,13 +154,18 @@ public class teacher_add_attendance extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        try {
-            // TODO add your handling code here:
 
-            AddAttendance();
+               ArrayList<StudentAttendanceRecord> setstdlist= Controller.AddattList(jTable1, date);
+             
+               
+        try {
+            Controller.insertAttendance(setstdlist);
+
+            JOptionPane.showMessageDialog(jTable1,"Attendance added successfully","",JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
-            Logger.getLogger(teacher_add_attendance.class.getName()).log(Level.SEVERE, null, ex);
-        }
+JOptionPane.showMessageDialog(jTable1,"Attendance already exist","",JOptionPane.ERROR_MESSAGE);        }
+
+
     }//GEN-LAST:event_jMenu1MouseClicked
 
   
@@ -182,50 +187,7 @@ public class teacher_add_attendance extends javax.swing.JFrame {
            }
         }
         
-       
-       
-       
-    public void  AddAttendance() throws SQLException{
-         AttendanceController Controller = ObjectsFactory.getInstanceOfAttendanceController();
-       ArrayList<StudentAttendanceRecord> setStdlist=new ArrayList<>();
-       
-        
 
-         StudentAttendanceRecord AttendanceRecord =new StudentAttendanceRecord();
-         DefaultTableModel model=(DefaultTableModel) jTable1.getModel();
-         
-       // java.sql.Date sqldate = new java.sql.Date(date.getDate());
-       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-     
-       for(int i=0; i<model.getRowCount(); i++){
-       AttendanceRecord.regno = (String)model.getValueAt(i,0);
-        AttendanceRecord.teacherid= "115";
-        
-        
-        AttendanceRecord.date=sdf.format(date.getDate());
-        
-//        Date date=Date.valueOf(AttendanceRecord.date);
-        Object o = model.getValueAt(i,3);
-        if(o == null || !(Boolean) model.getValueAt(i,3)){
-          AttendanceRecord.attendance="absent";
-       }
-        else{
-            AttendanceRecord.attendance="present";
-        }
-        setStdlist.add(AttendanceRecord);
-       }
-       PreparedStatement prepere=Controller.insert(setquery);
-       for(StudentAttendanceRecord att: setStdlist){
-     
-       prepere.setString(1,att.teacherid);
-       prepere.setString(2,att.regno);
-       prepere.setString(3,att.attendance);
-       prepere.setString(4, (att.date));
-       prepere.executeUpdate();
-       
-       }
-     }
-     
     /**
      *
      * @param args
