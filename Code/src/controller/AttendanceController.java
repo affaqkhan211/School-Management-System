@@ -37,11 +37,21 @@ public class AttendanceController {
         return dm.getlist(query);
     }
      public ArrayList<StudentRecord> viewStudents() {
-      String query="select distinct * from studentatt group by reg_num";
+      String query="select distinct * from students";
         return dm.getlist(query);
     }
 
-    public ArrayList<StudentAttendanceRecord> AddattList(JTable table ,JDateChooser date){
+      public ArrayList<StudentRecord> viewupdstudents(String date) {
+      String query="select * from studentatt where _date="+"'"+date+"'";
+        return dm.getlist(query);
+    }
+      
+      public void updStudentAtt(ArrayList<StudentAttendanceRecord> stdlist,String date) throws SQLException{
+    String query="update attendance SET att_status=? where date="+"'"+date+"'";
+    dm.insertUpdAtt(stdlist, query);
+    }
+      
+    public ArrayList<StudentAttendanceRecord> getattList(JTable table ,JDateChooser date){
     
     return updlist.Fetch(table,date);
     
@@ -63,9 +73,16 @@ public class AttendanceController {
        
        }
  
-
+ public ArrayList<StudentRecord> viewstudent(String regnum) {
+      String query="select * from studentatt where reg_num="+"'"+regnum+"'";
+        return dm.getlist(query);
+    }
         
-
+  public ArrayList<StudentRecord> AdAttendance(String Class){
+  
+  String Query="select * from studentatt where class="+"'"+Class+"'";
+    return dm.getlist(Query);
+  }
 }
 
     

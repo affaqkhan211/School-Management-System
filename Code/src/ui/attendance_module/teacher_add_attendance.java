@@ -29,7 +29,7 @@ public class teacher_add_attendance extends javax.swing.JFrame {
      * @throws java.sql.SQLException
      */
     
-    public String setquery="insert into attendance (teacher_id,reg_num,att_status,_date) values (?,?,?,?)";
+//    public String setquery="insert into attendance (teacher_id,reg_num,att_status,_date) values (?,?,?,?)";
      AttendanceController Controller; 
     ArrayList<StudentRecord> stdlist;
     public teacher_add_attendance() throws SQLException {
@@ -155,7 +155,7 @@ public class teacher_add_attendance extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
 
-               ArrayList<StudentAttendanceRecord> setstdlist= Controller.AddattList(jTable1, date);
+               ArrayList<StudentAttendanceRecord> setstdlist= Controller.getattList(jTable1, date);
              
                
         try {

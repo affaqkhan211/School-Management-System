@@ -26,8 +26,12 @@ public class RecordMapper {
                 objStd.regno=rs.getString("reg_num");
                  objStd.name=rs.getString("fname")+" "+rs.getString("lname");
                  objStd.Class=rs.getString("class");
+                 try{
                  objStd.attendance=rs.getString("att_status");
                  objStd.date=rs.getString("_date");
+                 }catch(SQLException e){
+                 
+                 }
                 stdlist.add( objStd);
             }
         }catch (SQLException e){

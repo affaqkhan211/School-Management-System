@@ -24,7 +24,14 @@ public class FillProgressBar{
 
     
    public  void fill(JProgressBar jpresent,JProgressBar jabsent,ArrayList<StudentRecord> stdlist){
+       
      int total= stdlist.size();
+     
+     if(total==0){
+    
+         
+         return;
+     }
        int present=0;
        int absent=0;
      

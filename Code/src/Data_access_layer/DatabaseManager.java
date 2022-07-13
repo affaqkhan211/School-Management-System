@@ -26,8 +26,14 @@ public class DatabaseManager {
    StudentRegistration stdreg;
    TeacherRegistration threg;
     StudentAddAttendance addatt;
+<<<<<<< Updated upstream
     ClerkRegistration clreg;
        
+=======
+    
+     UpdateStudentAttendance updatt;
+     
+>>>>>>> Stashed changes
     public DatabaseManager(RecordMapper mapp){
         connect=new SqlConnection("jdbc:mysql://127.0.0.1:3306/management" ,"irfan", "irfan1234");
 //      connect=new SqlConnection("jdbc:mysql://localhost:3306/attendance__system" ,"root", "kashan123");
@@ -37,7 +43,11 @@ public class DatabaseManager {
   stdreg=new StudentRegistration();
   threg=new TeacherRegistration();
   addatt=new StudentAddAttendance();
+<<<<<<< Updated upstream
   clreg=new ClerkRegistration();
+=======
+  updatt=new UpdateStudentAttendance();
+>>>>>>> Stashed changes
   
     }
             
@@ -87,5 +97,12 @@ threg.regesterteacher(fname,lname,t_id, email,Class,pass,Admin_id,setQuery,prepe
 clreg.regesterclerk(fname,lname,c_id, email,pass,Admin_id,setQuery,prepere);
     }
     
+    public void  insertUpdAtt(ArrayList<StudentAttendanceRecord> setstdList,String Query) throws SQLException{
+        Connection dbconn =connect.getConnection();
+        PreparedStatement prepere = setrecord.setRecord(Query,dbconn);
+    
+    updatt.updAtt(prepere, setstdList);
+    
+    }
     
 }
