@@ -17,6 +17,7 @@ public class UpdateStudentAttendance {
     public void updAtt(PreparedStatement prepere,ArrayList<StudentAttendanceRecord> stdlist) throws SQLException{
     for(StudentAttendanceRecord att:stdlist){
      prepere.setString(1,att.attendance);
+     prepere.setString(2,att.regno);
     prepere.executeUpdate();
     }
     }

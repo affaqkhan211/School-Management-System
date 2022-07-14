@@ -187,7 +187,7 @@ public class teacher_modify_attendance extends javax.swing.JFrame {
             Controller.updStudentAtt(setstdlist,sdf.format(date.getDate()));
             JOptionPane.showMessageDialog(jTable1,"Attendance updated succesfully","",JOptionPane.INFORMATION_MESSAGE);    
         } catch (SQLException ex) {
-         JOptionPane.showMessageDialog(jTable1,"Attendance updation failed","",JOptionPane.ERROR_MESSAGE);        }
+         JOptionPane.showMessageDialog(jTable1,ex.getMessage(),"",JOptionPane.ERROR_MESSAGE);        }
        
             
     }//GEN-LAST:event_jMenu1MouseClicked

@@ -26,28 +26,28 @@ public class DatabaseManager {
    StudentRegistration stdreg;
    TeacherRegistration threg;
     StudentAddAttendance addatt;
-<<<<<<< Updated upstream
+
     ClerkRegistration clreg;
        
-=======
+
     
      UpdateStudentAttendance updatt;
      
->>>>>>> Stashed changes
+
     public DatabaseManager(RecordMapper mapp){
-        connect=new SqlConnection("jdbc:mysql://127.0.0.1:3306/management" ,"irfan", "irfan1234");
-//      connect=new SqlConnection("jdbc:mysql://localhost:3306/attendance__system" ,"root", "kashan123");
+//        connect=new SqlConnection("jdbc:mysql://127.0.0.1:3306/management" ,"irfan", "irfan1234");
+  connect=new SqlConnection("jdbc:mysql://localhost:3306/attendance__system" ,"root", "kashan123");
        this.mapp=mapp;
   reader=new DatabaseReader();
    setrecord=new RecordSet();
   stdreg=new StudentRegistration();
   threg=new TeacherRegistration();
   addatt=new StudentAddAttendance();
-<<<<<<< Updated upstream
+
   clreg=new ClerkRegistration();
-=======
+
   updatt=new UpdateStudentAttendance();
->>>>>>> Stashed changes
+
   
     }
             

@@ -47,7 +47,7 @@ public class AttendanceController {
     }
       
       public void updStudentAtt(ArrayList<StudentAttendanceRecord> stdlist,String date) throws SQLException{
-    String query="update attendance SET att_status=? where date="+"'"+date+"'";
+    String query="update attendance SET att_status=?  where reg_num=?  AND _date="+"'"+date+"'";
     dm.insertUpdAtt(stdlist, query);
     }
       

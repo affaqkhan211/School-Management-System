@@ -5,7 +5,7 @@
 package ui;
 
 import ui.loginui.login;
-import ui.loginui.student_registration;
+//import ui.loginui.student_registration;
 import ui.loginui.teacher_registration;
 
 /**
@@ -137,7 +137,7 @@ public class Clerk_Dashboard extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        new student_registration().setVisible(true);
+//        new student_registration().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

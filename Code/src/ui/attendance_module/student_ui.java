@@ -235,7 +235,7 @@ public class student_ui extends javax.swing.JFrame {
               Object[] rowdata =new Object[2]; 
            
                
-               rowdata[0]=stdlist.get(i).regno;
+               rowdata[0]=stdlist.get(i).date;
             
                rowdata[1]=stdlist.get(i).attendance;
                

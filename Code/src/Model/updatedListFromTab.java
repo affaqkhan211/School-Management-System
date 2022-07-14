@@ -28,7 +28,7 @@ public class updatedListFromTab {
        int j=model.getRowCount();
        
        for(int i=0; i<j; i++){
-           StudentAttendanceRecord AttendanceRecord =new StudentAttendanceRecord();
+        StudentAttendanceRecord AttendanceRecord =new StudentAttendanceRecord();
        AttendanceRecord.regno = (String)model.getValueAt(i,0);
         AttendanceRecord.teacherid= "115";
         AttendanceRecord.date=sdf.format(date.getDate());
