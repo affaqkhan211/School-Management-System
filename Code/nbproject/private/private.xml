@@ -5,12 +5,10 @@
         <group>
             <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/DatabaseManager.java</file>
             <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/controller/ObjectsFactory.java</file>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/ui/Clerk_Dashboard.java</file>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/ui/attendance_module/Admin_ui.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/StudentAddAttendance.java</file>
             <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/controller/RegController.java</file>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/ui/Admin_Dashboard.java</file>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/ui/loginui/student_registration.java</file>
-            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/ui/loginui/teacher_registration.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/Data_access_layer/ClerkRegistration.java</file>
+            <file>file:/C:/Users/mnk/Downloads/School-Management-System/Code/src/ui/loginui/clerk_registration.java</file>
         </group>
     </open-files>
 </project-private>

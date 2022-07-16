@@ -24,7 +24,7 @@ public class clerk_registration extends javax.swing.JFrame {
     public clerk_registration() {
         initComponents();
          this.setLocationRelativeTo(null);
-          Controller = ObjectsFactory.getinstanceofLoginController();
+          Controller = ObjectsFactory.getinstanceofRegisterController();
     }
 
     /**

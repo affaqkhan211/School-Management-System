@@ -23,7 +23,7 @@ public class ObjectsFactory {
         return new AttendanceController();
     }
      //ref
-     public static RegController getinstanceofLoginController(){
+     public static RegController getinstanceofRegisterController(){
      
      return new RegController();
      
@@ -38,6 +38,8 @@ public class ObjectsFactory {
    
      return  new updatedListFromTab();
      }
+
+  
 
   
      

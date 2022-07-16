@@ -68,6 +68,13 @@ return mapp.getStudents(rs);
    PreparedStatement prepere = setrecord.setRecord(setQuery,dbconn);
  return prepere;
  }
+//  public PreparedStatement insertStudentrecord(String setQuery) {
+//  Connection dbconn =connect.getConnection();
+// PreparedStatement prepere = setrecord.setRecord(setQuery,dbconn);
+// 
+//return prepere;
+// 
+//  }
  
  public void insertStudentrecord(String fname,String lname, String regno, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
   Connection dbconn =connect.getConnection();
