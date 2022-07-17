@@ -9,7 +9,7 @@ import controller.RegController;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import ui.Admin_Dashboard;
-import ui.Clerk_Dashboard;
+//import ui.Clerk_Dashboard;
 
 /**
  *
@@ -244,7 +244,7 @@ String admin_id="admin123";
 String query="insert into clerk(fname,lname,c_id,email_id,pass,a_id) values (?,?,?,?,?,?)";
 
         try {
-            Controller.insertclerk(fname,lname,c_id,email,pass,admin_id,query);
+            Controller.Registerclerk(fname,lname,c_id,email,pass,admin_id,query);
           JOptionPane.showMessageDialog(null, "Clerk Register Successfuly");
         } catch (SQLException ex) {
 //            System.out.println("eror in "+ex.getMessage());

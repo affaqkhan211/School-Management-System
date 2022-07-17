@@ -98,7 +98,7 @@ threg.regesterteacher(fname,lname,t_id, email,Class,pass,Admin_id,setQuery,prepe
     
     }
 
-    public void insertclerkrecord(String fname, String lname, String c_id, String email, String pass, String Admin_id, String setQuery) throws SQLException {
+    public void Registerclerkrecord(String fname, String lname, String c_id, String email, String pass, String Admin_id, String setQuery) throws SQLException {
         Connection dbconn =connect.getConnection();
  PreparedStatement prepere = setrecord.setRecord(setQuery,dbconn);
 clreg.regesterclerk(fname,lname,c_id, email,pass,Admin_id,setQuery,prepere);

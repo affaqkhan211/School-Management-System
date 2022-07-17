@@ -29,7 +29,7 @@ public class teacher_registration extends javax.swing.JFrame {
     public teacher_registration() {
         initComponents();
           this.setLocationRelativeTo(null);
-          Controller = ObjectsFactory.getinstanceofLoginController();
+          Controller = ObjectsFactory.getinstanceofRegisterController();
     }
 
     /**
