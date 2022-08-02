@@ -24,17 +24,17 @@ public class RegController {
     }
     
     
-public  void  insert(String fname,String lname, String regno, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
+public  void  Registerstudent(String fname,String lname, String regno, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
     
     
-   dm.insertStudentrecord(fname,lname,regno, email,Class,pass,Admin_id,setQuery);
+   dm.RegisterStudentrecord(fname,lname,regno, email,Class,pass,Admin_id,setQuery);
    
    
    }
 //mine
-public  void  insertteach(String fname,String lname, String t_id, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
+public  void  Registerteach(String fname,String lname, String t_id, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
     
-   dm.insertteacherrecord(fname,lname,t_id, email,Class,pass,Admin_id,setQuery);
+   dm.Registerteacherrecord(fname,lname,t_id, email,Class,pass,Admin_id,setQuery);
    
    
    }

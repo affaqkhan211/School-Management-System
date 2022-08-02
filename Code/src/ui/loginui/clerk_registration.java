@@ -110,8 +110,20 @@ public class clerk_registration extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Email_id");
 
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Password");
+
+        fname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fnameActionPerformed(evt);
+            }
+        });
 
         jCheckBoxshowpassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jCheckBoxshowpassword.setText("Show Password");
@@ -242,10 +254,32 @@ String email=this.email.getText();
 String pass= new String(this.pass.getPassword());
 String admin_id="admin123";
 String query="insert into clerk(fname,lname,c_id,email_id,pass,a_id) values (?,?,?,?,?,?)";
-
+  
         try {
             Controller.Registerclerk(fname,lname,c_id,email,pass,admin_id,query);
+             int length = pass.length();
+            
+                 if (fname.equals("")) {
+            JOptionPane.showMessageDialog(null, "enter valid first name");
+        }
+                 else if (lname.equals("")) {
+            JOptionPane.showMessageDialog(null, "enter valid last name");
+        }
+                  else if (c_id.equals("")) {
+            JOptionPane.showMessageDialog(null, "enter valid id");
+        }
+                  else if (email.equals("")) {
+            JOptionPane.showMessageDialog(null, "enter valid email");
+        }
+                  else if (pass.equals("")) {
+            JOptionPane.showMessageDialog(null, "enter valid password");
+        }
+                  else if(length<0||length < 6){
+                     JOptionPane.showMessageDialog(null, "Too short password, password must be 6 characters or more");
+                }
+                else{
           JOptionPane.showMessageDialog(null, "Clerk Register Successfuly");
+                }
         } catch (SQLException ex) {
 //            System.out.println("eror in "+ex.getMessage());
             JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -260,6 +294,22 @@ String query="insert into clerk(fname,lname,c_id,email_id,pass,a_id) values (?,?
 //         new Clerk_Dashboard().setVisible(true);
          new Admin_Dashboard().setVisible(true);
     }//GEN-LAST:event_backActionPerformed
+
+    private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
+  
+        
+    }//GEN-LAST:event_fnameActionPerformed
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+//  String pass= new String(this.pass.getPassword());
+//        int length = pass.length();
+//                int passInt = Integer.parseInt(pass);
+//                
+//                if(length < 6)
+//                    System.out.println("Too short password, password must be 6 characters or more");
+                
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passActionPerformed
 
     /**
      * @param args the command line arguments

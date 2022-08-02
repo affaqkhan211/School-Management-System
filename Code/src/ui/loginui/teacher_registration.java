@@ -282,7 +282,7 @@ String pass= new String(this.pass.getPassword());
 String query="insert into teacher(fname,lname,t_id,email_id,class,pass,a_id) values (?,?,?,?,?,?,?)";
 
         try {
-            Controller.insertteach(fname,lname,t_id,email,Class,pass,admin_id,query);
+            Controller.Registerteach(fname,lname,t_id,email,Class,pass,admin_id,query);
           JOptionPane.showMessageDialog(null, "Teacher Register Successfuly");
         } catch (SQLException ex) {
 //            System.out.println("eror in "+ex.getMessage());

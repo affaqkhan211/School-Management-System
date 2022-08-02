@@ -76,7 +76,7 @@ return mapp.getStudents(rs);
 // 
 //  }
  
- public void insertStudentrecord(String fname,String lname, String regno, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
+ public void RegisterStudentrecord(String fname,String lname, String regno, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
   Connection dbconn =connect.getConnection();
  PreparedStatement prepere = setrecord.setRecord(setQuery,dbconn);
  
@@ -84,7 +84,7 @@ return mapp.getStudents(rs);
  
   }
  //techer registeration mine
- public void insertteacherrecord(String fname,String lname, String t_id, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
+ public void Registerteacherrecord(String fname,String lname, String t_id, String email,String Class,String pass,String Admin_id,String setQuery) throws SQLException{
   Connection dbconn =connect.getConnection();
  PreparedStatement prepere = setrecord.setRecord(setQuery,dbconn);
 threg.regesterteacher(fname,lname,t_id, email,Class,pass,Admin_id,setQuery,prepere);

@@ -231,6 +231,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pass">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -241,6 +244,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fname">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fnameActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="lname">
     </Component>
