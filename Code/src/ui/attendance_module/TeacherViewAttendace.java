@@ -12,24 +12,32 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import ui.Teacher_Dashboard;
 
 /**
  *
  * @author hp
  */
-public class teacher_ui extends javax.swing.JFrame {
+public class TeacherViewAttendace extends javax.swing.JFrame {
 
     /*
     *
      * Creates new form teacher_ui
      */
-    public teacher_ui() throws SQLException{
+    FillProgressBar fbar;
+    
+    public TeacherViewAttendace() throws SQLException{
         initComponents();
         
       AttendanceController Controller = ObjectsFactory.getInstanceOfAttendanceController();
-      ArrayList<StudentRecord> stdlist = Controller.viewstudents();
+      ArrayList<StudentRecord> stdlist = Controller.teacherview();
+      if(stdlist.isEmpty()){
+      JOptionPane.showMessageDialog(null,"Record Not found","",JOptionPane.ERROR_MESSAGE);        
+        fbar =new FillProgressBar();
+      }
             populatetable(stdlist);
-          Controller.fillbar(jpresent,jabsent,stdlist);
+         fbar.fill(jpresent,jabsent,stdlist);
     }
  
 
@@ -154,6 +162,11 @@ public class teacher_ui extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Back");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -187,6 +200,11 @@ public class teacher_ui extends javax.swing.JFrame {
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
       
     }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+              this.setVisible(false);
+             new Teacher_Dashboard().setVisible(true);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -230,22 +248,23 @@ public class teacher_ui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(teacher_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherViewAttendace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(teacher_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherViewAttendace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(teacher_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherViewAttendace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(teacher_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherViewAttendace.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             try {
-                new teacher_ui().setVisible(true);
+                new TeacherViewAttendace().setVisible(true);
             } catch (SQLException ex) {
-                Logger.getLogger(teacher_ui.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TeacherViewAttendace.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

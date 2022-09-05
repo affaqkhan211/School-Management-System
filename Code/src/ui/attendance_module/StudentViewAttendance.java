@@ -18,16 +18,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author hp
  */
-public class student_ui extends javax.swing.JFrame {
+public class StudentViewAttendance extends javax.swing.JFrame {
 
     /*
     *
      * Creates new form student_ui
      */
+    FillProgressBar fbar;
      AttendanceController Controller;
-    public student_ui() {
+    public StudentViewAttendance() {
         initComponents();
         Controller = ObjectsFactory.getInstanceOfAttendanceController();
+        fbar =new FillProgressBar();
     }
 
     /**
@@ -53,11 +55,9 @@ public class student_ui extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(695, 471));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
@@ -97,6 +97,11 @@ public class student_ui extends javax.swing.JFrame {
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
             }
         });
 
@@ -164,17 +169,8 @@ public class student_ui extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)))
-                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("View Attendance");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Back");
         jMenuBar1.add(jMenu2);
@@ -210,19 +206,18 @@ public class student_ui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-  
-        DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+           DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
          try {
-             ArrayList<StudentRecord> stdlist =Controller.viewstudent(jTextField1.getText());
+             ArrayList<StudentRecord> stdlist =Controller.studentview(jTextField1.getText());
              populatetable(stdlist);
              
-       Controller.fillbar(jpresent,jabsent,stdlist);
+      fbar.fill(jpresent,jabsent,stdlist);
          } catch (SQLException ex) {
             JOptionPane.showMessageDialog(jTable1,"Attendance record not found","",JOptionPane.ERROR_MESSAGE);   
          }
-    }//GEN-LAST:event_jMenu1MouseClicked
+    }//GEN-LAST:event_jTextField1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -258,19 +253,20 @@ public class student_ui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(student_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentViewAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(student_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentViewAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(student_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentViewAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(student_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentViewAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new student_ui().setVisible(true);
+            new StudentViewAttendance().setVisible(true);
         });
     }
 
@@ -281,7 +277,6 @@ public class student_ui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

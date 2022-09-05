@@ -4,6 +4,7 @@
  */
 package ui.attendance_module;
 
+import Model.Response;
 import Record.StudentAttendanceRecord;
 import Record.StudentRecord;
 import controller.ObjectsFactory;
@@ -16,13 +17,14 @@ import javax.swing.table.DefaultTableModel;
 
 
 import javax.swing.JOptionPane;
+import ui.Teacher_Dashboard;
 
 
 /**
  *
  * @author hp
  */
-public class teacher_add_attendance extends javax.swing.JFrame {
+public class TeacherAddAttendance extends javax.swing.JFrame {
 
     /**
      * Creates new form teacher_add_attendance
@@ -32,11 +34,16 @@ public class teacher_add_attendance extends javax.swing.JFrame {
 //    public String setquery="insert into attendance (teacher_id,reg_num,att_status,_date) values (?,?,?,?)";
      AttendanceController Controller; 
     ArrayList<StudentRecord> stdlist;
-    public teacher_add_attendance() throws SQLException {
+    updatedListFromTab updlisttab ;
+    ResponseHandler handle;
+    public TeacherAddAttendance() throws SQLException {
         initComponents();
+        
       Controller = ObjectsFactory.getInstanceOfAttendanceController();
-        stdlist= Controller.viewStudents();
+        stdlist= Controller.viewstudentlist();
         populatetable(stdlist);
+        updlisttab=new updatedListFromTab();
+           handle=new ResponseHandler();
     }
 
     /**
@@ -84,7 +91,7 @@ public class teacher_add_attendance extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "RegNo", "Name", "Class", "Attendance"
             }
         ) {
             Class[] types = new Class [] {
@@ -115,6 +122,11 @@ public class teacher_add_attendance extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Back");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -155,18 +167,21 @@ public class teacher_add_attendance extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
 
-               ArrayList<StudentAttendanceRecord> setstdlist= Controller.getattList(jTable1, date);
-             
-               
-        try {
-            Controller.insertAttendance(setstdlist);
-
-            JOptionPane.showMessageDialog(jTable1,"Attendance added successfully","",JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-JOptionPane.showMessageDialog(jTable1,"Attendance already exist","",JOptionPane.ERROR_MESSAGE);        }
-
+ArrayList<StudentAttendanceRecord> setstdlist= updlisttab.Fetch(jTable1, date);
+            Response response= Controller.addattendance(setstdlist);
+             ResponseHandler.handelresponse(response,jTable1);
+   
+     
+            
+//JOptionPane.showMessageDialog(jTable1,"Attendance already exist","",JOptionPane.ERROR_MESSAGE);        }
+        
 
     }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+      this.setVisible(false);
+      new Teacher_Dashboard().setVisible(true);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
   
         private void populatetable(ArrayList<StudentRecord> stdlist) throws SQLException{
@@ -206,22 +221,23 @@ JOptionPane.showMessageDialog(jTable1,"Attendance already exist","",JOptionPane.
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(teacher_add_attendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherAddAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(teacher_add_attendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherAddAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(teacher_add_attendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherAddAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(teacher_add_attendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherAddAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             try {
-                new teacher_add_attendance().setVisible(true);
+                new TeacherAddAttendance().setVisible(true);
             } catch (SQLException ex) {
-                Logger.getLogger(teacher_add_attendance.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TeacherAddAttendance.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

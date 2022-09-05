@@ -2,14 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package ui.attendance_module;
 
 import Record.StudentRecord;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JProgressBar;
-import ui.attendance_module.teacher_ui;
 
 
 
@@ -53,12 +52,12 @@ int pcounter=0;
        while (pcounter<=pper) {
               jpresent.setValue(pcounter);
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(2);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(teacher_ui.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TeacherViewAttendace.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                pcounter+=5;
+                pcounter+=15;
                 
        }
   int acounter=0;
@@ -66,11 +65,11 @@ int pcounter=0;
                 while (acounter<=aper) {
               jabsent.setValue(acounter);
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(2);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(teacher_ui.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TeacherViewAttendace.class.getName()).log(Level.SEVERE, null, ex);
                 }
-               acounter+=5;
+               acounter+=15;
             }
    
     

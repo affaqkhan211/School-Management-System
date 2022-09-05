@@ -11,27 +11,28 @@ import controller.ObjectsFactory;
  *
  * @author hp
  */
-public class Admin_ui extends javax.swing.JFrame {
+public class AdminViewAttendance extends javax.swing.JFrame {
 
     /**
      * Creates new form Admin_Cub
      */
-    public Admin_ui() {
+    public AdminViewAttendance() {
         initComponents();
         AttendanceController  Controller = ObjectsFactory.getInstanceOfAttendanceController();
         
-        Controller.fillbar(pre10, ab10, Controller.AdAttendance("10th"));
-        Controller.fillbar(pre9, ab9, Controller.AdAttendance("9th"));
-        Controller.fillbar(pre8, ab8, Controller.AdAttendance("8th"));
-        Controller.fillbar(pre7, ab7, Controller.AdAttendance("7th"));
-        Controller.fillbar(pre6, ab6, Controller.AdAttendance("6th"));
-        Controller.fillbar(pre5, ab5, Controller.AdAttendance("5th"));
-        Controller.fillbar(pre4, ab4, Controller.AdAttendance("4th"));
-        Controller.fillbar(pre3, ab3, Controller.AdAttendance("3rd"));
-        Controller.fillbar(pre2, ab2, Controller.AdAttendance("2nd"));
-        Controller.fillbar(pre1, ab1, Controller.AdAttendance("ist"));
+        FillProgressBar fbar =new FillProgressBar();
         
-        
+        fbar.fill(pre10, ab10, Controller.adminview("10th"));
+        fbar.fill(pre9, ab9, Controller.adminview("9th"));
+        fbar.fill(pre8, ab8, Controller.adminview("8th"));
+        fbar.fill(pre7, ab7, Controller.adminview("7th"));
+        fbar.fill(pre6, ab6, Controller.adminview("6th"));
+        fbar.fill(pre5, ab5, Controller.adminview("5th"));
+        fbar.fill(pre4, ab4, Controller.adminview("4th"));
+        fbar.fill(pre3, ab3, Controller.adminview("3rd"));
+        fbar.fill(pre2, ab2, Controller.adminview("2nd"));
+        fbar.fill(pre1, ab1, Controller.adminview("ist"));
+    
     }
 
     /**
@@ -131,6 +132,12 @@ public class Admin_ui extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
+        pre10.setForeground(new java.awt.Color(51, 51, 51));
+        pre10.setStringPainted(true);
+
+        ab10.setForeground(new java.awt.Color(51, 51, 51));
+        ab10.setStringPainted(true);
+
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Class 10th");
 
@@ -177,6 +184,12 @@ public class Admin_ui extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addGap(21, 21, 21))
         );
+
+        pre9.setForeground(new java.awt.Color(51, 51, 51));
+        pre9.setStringPainted(true);
+
+        ab9.setForeground(new java.awt.Color(51, 51, 51));
+        ab9.setStringPainted(true);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Class 9th");
@@ -225,6 +238,12 @@ public class Admin_ui extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        pre6.setForeground(new java.awt.Color(51, 51, 51));
+        pre6.setStringPainted(true);
+
+        ab6.setForeground(new java.awt.Color(51, 51, 51));
+        ab6.setStringPainted(true);
+
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setText("Class 6th");
 
@@ -271,6 +290,12 @@ public class Admin_ui extends javax.swing.JFrame {
                     .addComponent(jLabel15))
                 .addGap(0, 0, 0))
         );
+
+        pre8.setForeground(new java.awt.Color(51, 51, 51));
+        pre8.setStringPainted(true);
+
+        ab8.setForeground(new java.awt.Color(51, 51, 51));
+        ab8.setStringPainted(true);
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel22.setText("Class 8th");
@@ -319,6 +344,12 @@ public class Admin_ui extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        pre7.setForeground(new java.awt.Color(51, 51, 51));
+        pre7.setStringPainted(true);
+
+        ab7.setForeground(new java.awt.Color(51, 51, 51));
+        ab7.setStringPainted(true);
+
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel25.setText("Class 7th");
 
@@ -365,6 +396,12 @@ public class Admin_ui extends javax.swing.JFrame {
                     .addComponent(jLabel27))
                 .addGap(21, 21, 21))
         );
+
+        pre5.setForeground(new java.awt.Color(51, 51, 51));
+        pre5.setStringPainted(true);
+
+        ab5.setForeground(new java.awt.Color(51, 51, 51));
+        ab5.setStringPainted(true);
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel37.setText("Class 5th");
@@ -413,6 +450,12 @@ public class Admin_ui extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        pre4.setForeground(new java.awt.Color(51, 51, 51));
+        pre4.setStringPainted(true);
+
+        ab4.setForeground(new java.awt.Color(51, 51, 51));
+        ab4.setStringPainted(true);
+
         jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel40.setText("Class 4th");
 
@@ -459,6 +502,12 @@ public class Admin_ui extends javax.swing.JFrame {
                     .addComponent(jLabel42))
                 .addGap(21, 21, 21))
         );
+
+        pre3.setForeground(new java.awt.Color(51, 51, 51));
+        pre3.setStringPainted(true);
+
+        ab3.setForeground(new java.awt.Color(51, 51, 51));
+        ab3.setStringPainted(true);
 
         jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel43.setText("Class 3rd");
@@ -507,6 +556,12 @@ public class Admin_ui extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        pre2.setForeground(new java.awt.Color(51, 51, 51));
+        pre2.setStringPainted(true);
+
+        ab2.setForeground(new java.awt.Color(51, 51, 51));
+        ab2.setStringPainted(true);
+
         jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel46.setText("Class 2nd");
 
@@ -553,6 +608,12 @@ public class Admin_ui extends javax.swing.JFrame {
                     .addComponent(jLabel48))
                 .addGap(21, 21, 21))
         );
+
+        pre1.setForeground(new java.awt.Color(51, 51, 51));
+        pre1.setStringPainted(true);
+
+        ab1.setForeground(new java.awt.Color(51, 51, 51));
+        ab1.setStringPainted(true);
 
         jLabel49.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel49.setText("Class ist");
@@ -686,20 +747,21 @@ public class Admin_ui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Admin_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminViewAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Admin_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminViewAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Admin_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminViewAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Admin_ui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdminViewAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admin_ui().setVisible(true);
+                new AdminViewAttendance().setVisible(true);
             }
         });
     }

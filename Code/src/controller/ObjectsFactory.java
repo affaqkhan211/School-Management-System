@@ -6,8 +6,8 @@ package controller;
 
 import Data_access_layer.DatabaseManager;
 import Data_access_layer.RecordMapper;
-import Model.FillProgressBar;
-import Model.updatedListFromTab;
+import ui.attendance_module.FillProgressBar;
+import ui.attendance_module.updatedListFromTab;
 
 /**
  *
@@ -23,20 +23,17 @@ public class ObjectsFactory {
         return new AttendanceController();
     }
      //ref
-     public static RegController getinstanceofLoginController(){
+//     public static RegController getinstanceofLoginController(){
+//     
+//     return new RegController();
+//     
+//     
+//     }
+    
+     public static AssignmentController getinstanceofAssignmentController(){
      
-     return new RegController();
-     
-     
-     }
-     public static FillProgressBar getinstanceofProgressBar(){
-   
-     return  new FillProgressBar();
-     }
-
-     public static updatedListFromTab getinstanceofupdaFromTab(){
-   
-     return  new updatedListFromTab();
+         return  new AssignmentController();
+         
      }
 
   

@@ -4,6 +4,14 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ViewAttendance"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu3MouseClicked"/>
+          </Events>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Save"/>
@@ -16,13 +24,8 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ShowAttendance"/>
-          </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu3MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu2MouseClicked"/>
           </Events>
         </Menu>
       </SubComponents>
@@ -128,10 +131,10 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="0">
-                <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                <Column editable="false" title="Title 2" type="java.lang.Object"/>
-                <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Boolean"/>
+                <Column editable="false" title="RegNo" type="java.lang.Object"/>
+                <Column editable="false" title="Name" type="java.lang.Object"/>
+                <Column editable="false" title="Class" type="java.lang.Object"/>
+                <Column editable="true" title="Attendance" type="java.lang.Boolean"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -166,6 +169,10 @@
       </SubComponents>
     </Container>
     <Component class="com.toedter.calendar.JDateChooser" name="date">
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dateMouseReleased"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="none"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

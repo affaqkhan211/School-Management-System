@@ -6,14 +6,14 @@ package controller;
 
 import Record.StudentRecord;
 import Data_access_layer.DatabaseManager;
-import Model.FillProgressBar;
-import Model.updatedListFromTab;
+import Model.Response;
+import ui.attendance_module.FillProgressBar;
+import ui.attendance_module.updatedListFromTab;
 import Record.StudentAttendanceRecord;
-import com.toedter.calendar.JDateChooser;
+
 import java.util.ArrayList;
 import java.sql.*;
-import javax.swing.JProgressBar;
-import javax.swing.JTable;
+
 
 
 
@@ -23,65 +23,57 @@ import javax.swing.JTable;
  */
 public class AttendanceController {
      DatabaseManager dm;
-     FillProgressBar Fill;
-     updatedListFromTab updlist;
+
    public AttendanceController(){
 
         dm=ObjectsFactory.getInstanceOfDatabaseManager();
-        Fill=ObjectsFactory.getinstanceofProgressBar();
-         updlist=ObjectsFactory.getinstanceofupdaFromTab();
-    }
-
-    public ArrayList<StudentRecord> viewstudents() {
-      String query="select * from studentatt";
-        return dm.getlist(query);
-    }
-     public ArrayList<StudentRecord> viewStudents() {
-      String query="select distinct * from students";
-        return dm.getlist(query);
-    }
-
-      public ArrayList<StudentRecord> viewupdstudents(String date) {
-      String query="select * from studentatt where _date="+"'"+date+"'";
-        return dm.getlist(query);
-    }
-      
-      public void updStudentAtt(ArrayList<StudentAttendanceRecord> stdlist,String date) throws SQLException{
-    String query="update attendance SET att_status=?  where reg_num=?  AND _date="+"'"+date+"'";
-    dm.insertUpdAtt(stdlist, query);
-    }
-      
-    public ArrayList<StudentAttendanceRecord> getattList(JTable table ,JDateChooser date){
-    
-    return updlist.Fetch(table,date);
-    
-    }
-
-     public PreparedStatement insert(String query){
-     return dm.insertrecord(query);
-     
-     }
-    
-     public void fillbar(JProgressBar b,JProgressBar b1,ArrayList<StudentRecord> list){
-         
-     
-     Fill.fill(b, b1, list);
-     }
-       public void insertAttendance(ArrayList<StudentAttendanceRecord> setstdList) throws SQLException{
-       String query="insert into attendance (teacher_id,reg_num,att_status,_date) values (?,?,?,?)";
-       dm.insertAtt(setstdList,query);
        
+    }
+
+    public ArrayList<StudentRecord> teacherview() {
+    return dm.teacherviewattendance();
+    }
+     public ArrayList<StudentRecord> viewstudentlist() {
+      
+        return dm.studentlist(); 
+    }
+
+      public ArrayList<StudentRecord> modifyview(String date) {
+      
+        return dm.modifyAttendanceList(date);
+    }
+      
+      public void updateStudentAttendance(ArrayList<StudentAttendanceRecord> stdlist,String date) throws SQLException{
+    Response response=new Response();
+    
+    dm.insertUpdAtt(stdlist, date,response);
+    }
+      
+ 
+
+//     public PreparedStatement insert(String query){
+//     return dm.insertrecord(query);
+//     
+//     }
+    
+   
+       public Response addattendance(ArrayList<StudentAttendanceRecord> setstdList){
+           Response response =new Response();
+           
+  
+              dm.insertattendance(setstdList,response);
+           return response;
        }
  
- public ArrayList<StudentRecord> viewstudent(String regnum) {
-      String query="select * from studentatt where reg_num="+"'"+regnum+"'";
-        return dm.getlist(query);
+ public ArrayList<StudentRecord> studentview(String regnum) {
+      
+        return dm.studentviewlist(regnum);
     }
         
-  public ArrayList<StudentRecord> AdAttendance(String Class){
+  public ArrayList<StudentRecord> adminview(String Class){
   
-  String Query="select * from studentatt where class="+"'"+Class+"'";
-    return dm.getlist(Query);
+  
+    return dm.adminviewlist(Class);
   }
 }
 

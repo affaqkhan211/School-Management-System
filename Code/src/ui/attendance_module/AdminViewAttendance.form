@@ -198,8 +198,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre10">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab10">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -280,8 +292,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre9">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab9">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
@@ -362,8 +386,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre6">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab6">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
@@ -444,8 +480,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre8">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab8">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>
@@ -526,8 +574,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre7">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab7">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel25">
           <Properties>
@@ -608,8 +668,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre5">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab5">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel37">
           <Properties>
@@ -690,8 +762,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre4">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab4">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel40">
           <Properties>
@@ -772,8 +856,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre3">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab3">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel43">
           <Properties>
@@ -854,8 +950,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre2">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab2">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel46">
           <Properties>
@@ -935,8 +1043,20 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="pre1">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ab1">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="stringPainted" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel49">
           <Properties>

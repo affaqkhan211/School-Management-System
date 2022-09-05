@@ -4,6 +4,7 @@
  */
 package ui.attendance_module;
 
+import Model.Response;
 import Record.StudentAttendanceRecord;
 import Record.StudentRecord;
 import controller.AttendanceController;
@@ -13,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import ui.Teacher_Dashboard;
 
 /**
  *
@@ -20,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 
     
-public class teacher_modify_attendance extends javax.swing.JFrame {
+public class TeacherModifyAttendance extends javax.swing.JFrame {
 
     /**
      * Creates new form teacher_modify_attendance
@@ -28,11 +30,13 @@ public class teacher_modify_attendance extends javax.swing.JFrame {
     AttendanceController Controller;
     DefaultTableModel model ;
     SimpleDateFormat sdf;
-    public teacher_modify_attendance() {
+    updatedListFromTab updlisttab;
+    public TeacherModifyAttendance() {
         initComponents();
            Controller= ObjectsFactory.getInstanceOfAttendanceController();
      model =(DefaultTableModel) jTable1.getModel();
      sdf = new SimpleDateFormat("yyyy-MM-dd");
+      updlisttab=new updatedListFromTab();
     }
 
     
@@ -71,9 +75,9 @@ public class teacher_modify_attendance extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         date = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,7 +106,7 @@ public class teacher_modify_attendance extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "RegNo", "Name", "Class", "Attendance"
             }
         ) {
             Class[] types = new Class [] {
@@ -122,6 +126,25 @@ public class teacher_modify_attendance extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        date.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                dateMouseReleased(evt);
+            }
+        });
+        date.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                none(evt);
+            }
+        });
+
+        jMenu3.setText("ViewAttendance");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
+
         jMenu1.setText("Save");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,15 +154,12 @@ public class teacher_modify_attendance extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Back");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("ShowAttendance");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                jMenu2MouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -176,21 +196,35 @@ public class teacher_modify_attendance extends javax.swing.JFrame {
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
     
     model.setRowCount(0);
-        ArrayList<StudentRecord> stdlist = Controller.viewupdstudents(sdf.format(date.getDate()));
+        ArrayList<StudentRecord> stdlist = Controller.modifyview(sdf.format(date.getDate()));
             populatetable(stdlist);
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
       
-       ArrayList<StudentAttendanceRecord> setstdlist =Controller.getattList(jTable1, date);
-        try {
-            Controller.updStudentAtt(setstdlist,sdf.format(date.getDate()));
-            JOptionPane.showMessageDialog(jTable1,"Attendance updated succesfully","",JOptionPane.INFORMATION_MESSAGE);    
-        } catch (SQLException ex) {
-         JOptionPane.showMessageDialog(jTable1,ex.getMessage(),"",JOptionPane.ERROR_MESSAGE);        }
-       
-            
+       ArrayList<StudentAttendanceRecord> setstdlist =updlisttab.Fetch(jTable1, date);
+
+           Response response= Controller.updateStudentAttendance(setstdlist,sdf.format(date.getDate()));
+      
+           ResponseHandler handle=new ResponseHandler();
+           handle.handelresponse(response,jTable1);
     }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+       this.setVisible(false);
+             new Teacher_Dashboard().setVisible(true);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void none(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_none
+         
+    }//GEN-LAST:event_none
+
+    private void dateMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dateMouseReleased
+     model.setRowCount(0);
+        ArrayList<StudentRecord> stdlist = Controller.modifyview(sdf.format(date.getDate()));
+            populatetable(stdlist);
+            System.out.println("hh");
+    }//GEN-LAST:event_dateMouseReleased
   
     /**
      * @param args the command line arguments
@@ -209,20 +243,21 @@ public class teacher_modify_attendance extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(teacher_modify_attendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherModifyAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(teacher_modify_attendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherModifyAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(teacher_modify_attendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherModifyAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(teacher_modify_attendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TeacherModifyAttendance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new teacher_modify_attendance().setVisible(true);
+                new TeacherModifyAttendance().setVisible(true);
             }
         });
     }
